@@ -23,7 +23,7 @@ __pycache__
 .~lock*
 ~$*
 /models/
-*.ipynb
+# *.ipynb
 node_modules
 .DS_Store
 .mypy_cache
