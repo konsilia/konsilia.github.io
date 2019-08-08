@@ -21,7 +21,7 @@
                     </div>
                     <br />
                     <div>{{ section.description }}</div>
-                    <div v-if="semester" class="mt-2">
+                    <!-- <div v-if="semester" class="mt-2">
                         <button
                             class="btn btn-outline-info mr-2"
                             @click="openLousList(semester.id, section.id)"
@@ -31,7 +31,7 @@
                         <button class="btn btn-outline-info" @click="openVAGrade(section)">
                             Grade Distribution
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
