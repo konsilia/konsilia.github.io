@@ -70,14 +70,6 @@ interface DetailedEvaluatorOptions extends EvaluatorOptions {
 const defaultOptions: DetailedEvaluatorOptions = {
     sortBy: [
         {
-            name: 'distance',
-            enabled: true,
-            reverse: false,
-            exclusive: ['IamFeelingLucky'],
-            title: 'Walking Distance',
-            description: 'Avoid long distance walking between classes'
-        },
-        {
             name: 'variance',
             enabled: true,
             reverse: false,

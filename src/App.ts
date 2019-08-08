@@ -29,7 +29,6 @@ import SectionModal from './components/SectionModal.vue';
 import URLModal from './components/URLModal.vue';
 import DateSeparator from './components/DateSeparator.vue';
 
-import { loadBuildingList, loadTimeMatrix } from './data/BuildingLoader';
 import Store from './store';
 import randomColor from 'randomcolor';
 
@@ -97,21 +96,11 @@ export default class App extends Store {
         this.status.loading = true;
 
         // note: these three can be executed in parallel, i.e. they are not inter-dependent
-        const [pay1, pay2, pay3] = await Promise.all([
-            loadTimeMatrix(),
-            loadBuildingList(),
-            this.semester.loadSemesters()
-        ]);
+        const [pay1] = await Promise.all([this.semester.loadSemesters()]);
 
         this.noti.notify(pay1);
-        if (pay1.payload) window.timeMatrix = pay1.payload;
-
-        this.noti.notify(pay2);
-        if (pay2.payload) window.buildingList = pay2.payload;
-
-        this.noti.notify(pay3);
-        if (pay3.payload) {
-            this.semester.semesters = pay3.payload;
+        if (pay1.payload) {
+            this.semester.semesters = pay1.payload;
             const urlResult = await this.loadConfigFromURL();
             if (!urlResult) {
                 this.profile.initProfiles(this.semester.semesters);

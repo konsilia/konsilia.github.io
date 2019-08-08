@@ -2,6 +2,7 @@
     "name": "awesome-schedule",
     "version": "6.5.0",
     "private": true,
+    "homepage": "https://github.com/konsilia/konsilia.github.io",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build --modern",
@@ -9,7 +10,9 @@
         "test": "jest",
         "tsdoc": "typedoc --plugin typedoc-plugin-external-module-name --out ./docs/tsdoc ./src --mode modules --exclude \"node_modules/**\"",
         "exec": "ts-node -O {\\\"module\\\":\\\"commonjs\\\"}",
-        "postinstall": "patch-package"
+        "postinstall": "patch-package",
+        "deploy": "npm run build && npm run gh-pages",
+        "gh-pages": "gh-pages -d dist -b master"
     },
     "dependencies": {
         "axios": "^0.18.1",
@@ -55,6 +58,7 @@
         "css-loader": "^2.1.1",
         "eslint": "^5.16.0",
         "eslint-plugin-vue": "^5.2.3",
+        "gh-pages": "^2.1.1",
         "jest": "^24.8.0",
         "patch-package": "^6.1.2",
         "style-loader": "^0.23.1",

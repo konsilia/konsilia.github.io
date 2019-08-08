@@ -58,21 +58,23 @@ function saveCatalog(catalog: Catalog) {
 
 export async function requestSemesterData(semester: SemesterJSON): Promise<Catalog> {
     console.time(`request semester ${semester.name} data`);
-
-    const res = await (window.location.host === 'plannable.org' // Running on GitHub pages (primary address)?
-        ? axios.post(
-              `https://rabi.phys.virginia.edu/mySIS/CS2/deliverData.php`, // yes
-              stringify({
-                  Semester: semester.id,
-                  Group: 'CS',
-                  Description: 'Yes',
-                  submit: 'Submit Data Request',
-                  Extended: 'Yes'
-              })
-          ) // use the mirror/local dev server
-        : axios.get(
-              `${getApi()}/data/Semester%20Data/CS${semester.id}Data.csv?time=${Math.random()}`
-          ));
+    const res = await axios.get(
+        `/data/Semester%20Data/CS${semester.id}Data.csv?time=${Math.random()}`
+    );
+    // const res = await (window.location.host === 'plannable.org' // Running on GitHub pages (primary address)?
+    //     ? axios.post(
+    //           `https://rabi.phys.virginia.edu/mySIS/CS2/deliverData.php`, // yes
+    //           stringify({
+    //               Semester: semester.id,
+    //               Group: 'CS',
+    //               Description: 'Yes',
+    //               submit: 'Submit Data Request',
+    //               Extended: 'Yes'
+    //           })
+    //       ) // use the mirror/local dev server
+    //     : axios.get(
+    //           `${getApi()}/data/Semester%20Data/CS${semester.id}Data.csv?time=${Math.random()}`
+    //       ));
     console.timeEnd(`request semester ${semester.name} data`);
 
     const parsed = parseSemesterData(res.data);

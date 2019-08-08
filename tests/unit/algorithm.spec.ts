@@ -1,5 +1,5 @@
 import ScheduleGenerator from '@/algorithm/ScheduleGenerator';
-import { loadBuildingList, loadTimeMatrix } from '@/data/BuildingLoader';
+// import { loadBuildingList, loadTimeMatrix } from '@/data/BuildingLoader';
 import Schedule from '@/models/Schedule';
 import Store from '@/store';
 import data from './data';
@@ -7,8 +7,8 @@ import data from './data';
 const store = new Store();
 
 beforeAll(async () => {
-    window.timeMatrix = (await loadTimeMatrix()).payload!;
-    window.buildingList = (await loadBuildingList()).payload!;
+    // window.timeMatrix = (await loadTimeMatrix()).payload!;
+    // window.buildingList = (await loadBuildingList()).payload!;
 });
 
 describe('ScheduleGenerator Test', () => {
