@@ -82,14 +82,14 @@
             >
                 <i class="fas fa-stream"></i>
             </div>
-            <div
+            <!-- <div
                 title="Website guide and miscellaneous information"
                 :class="{ 'tab-icon-active': sideBar.showInfo }"
                 class="tab-icon mb-4"
                 @click="status.switchSideBar('showInfo')"
             >
                 <i class="fas fa-info-circle"></i>
-            </div>
+            </div> -->
             <div
                 title="Blank Page"
                 :class="{ 'tab-icon-active': sideBar.showExternal }"

@@ -26,7 +26,7 @@
 
         <v-footer id="app-footer" dark height="auto" class="w-100">
             <v-card class="flex w-100" flat tile>
-                <v-card-title class="teal py-3">
+                <!-- <v-card-title class="teal py-3">
                     <strong class="subheading mr-auto"
                         >Get connected with us and let us hear your voice!
                     </strong>
@@ -72,10 +72,13 @@
                             ><v-icon size="24px">fas fa-poll</v-icon>
                         </v-btn>
                     </a>
-                </v-card-title>
+                </v-card-title> -->
 
                 <v-card-actions class="grey darken-3 justify-content-center">
-                    &copy;2019 —&nbsp;<strong>Plannable</strong>
+                    &copy;2019 —&nbsp;<strong
+                        >Konsilia (based on
+                        <a href="https://plannable.org">UVa's Plannable</a>)</strong
+                    >
                 </v-card-actions>
             </v-card>
         </v-footer>
