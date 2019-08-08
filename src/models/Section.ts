@@ -156,7 +156,7 @@ export default class Section implements CourseFields, Hashable {
         const timeDict: TimeArray = [[], [], [], [], []];
 
         // there may be multiple meeting times. parse each of them and add to tmp_dict
-        const buildingList = window.buildingList;
+        // const buildingList = window.buildingList;
         for (const meeting of this.meetings) {
             const t = meeting.days;
             // skip empty string
@@ -177,16 +177,18 @@ export default class Section implements CourseFields, Hashable {
 
                 dayBlock.push(...timeBlock);
 
-                const { room } = meeting;
-                const roomMatch = findBestMatch(room.toLowerCase(), buildingList as string[]);
+                // const { room } = meeting;
+                // const roomMatch = findBestMatch(room.toLowerCase(), buildingList as string[]);
                 // we set the match threshold to 0.4
-                if (roomMatch.bestMatch.rating >= 0.4) {
-                    dayBlock.push(roomMatch.bestMatchIndex);
-                } else {
-                    // mismatch!
-                    console.warn(room, 'match not found!');
-                    dayBlock.push(-1);
-                }
+                dayBlock.push(-1);
+
+                // if (roomMatch.bestMatch.rating >= 0.4) {
+                //     dayBlock.push(roomMatch.bestMatchIndex);
+                // } else {
+                //     // mismatch!
+                //     console.warn(room, 'match not found!');
+                //     dayBlock.push(-1);
+                // }
             }
         }
 

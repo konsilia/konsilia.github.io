@@ -26,7 +26,7 @@ describe('ScheduleGenerator Test', () => {
         const options = store.getGeneratorOptions();
         if (!options) throw new Error('failed to get options');
 
-        const generator = new ScheduleGenerator(catalog, buildingList, options);
+        const generator = new ScheduleGenerator(catalog, options);
         expect(typeof generator.createSchedule).toBe('function');
         const schedule = new Schedule();
         schedule.All = {
@@ -77,7 +77,7 @@ describe('ScheduleGenerator Test', () => {
         sort.sortBy[3].enabled = true;
         sort.sortBy[3].reverse = true;
         result4.sort({ newOptions: sort });
-        result4.partialSort(result4.schedules, (a, b) => a.coeff - b.coeff, 10);
+        result4.partialSort(result4.schedules, (a: any, b: any) => a.coeff - b.coeff, 10);
 
         sort.sortBy[3].enabled = true;
         sort.sortBy[3].reverse = true;
